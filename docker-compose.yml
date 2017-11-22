@@ -29,7 +29,7 @@ services:
       - MYSQL_DATABASE=api_platform
       # You should definitely change the password in production
       - MYSQL_PASSWORD=api_platform
-      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_RANDOM_ROOT_PASSWORD=false
       - MYSQL_USER=api_platform
     volumes:
       - db-data:/var/lib/mysql:rw

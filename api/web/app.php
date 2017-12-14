@@ -9,7 +9,10 @@ if ('varnish' !== $proxyIp = gethostbyname('varnish')) {
     Request::setTrustedProxies([$proxyIp], Request::HEADER_FORWARDED);
 }
 
-$kernel = new AppKernel('prod', false);
+$environment = (getenv('SYMFONY_ENV') !== false) ? getenv('SYMFONY_ENV') : 'dev';
+$debug = (getenv('APP_DEBUG') !== false) ? (bool) getenv('APP_DEBUG') : true;
+
+$kernel = new AppKernel($environment, $debug);
 //$kernel = new AppCache($kernel);
 
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter

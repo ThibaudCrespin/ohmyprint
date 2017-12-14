@@ -25,6 +25,7 @@
         "doctrine/orm": "^2.5",
         "guzzlehttp/guzzle": "^6.0",
         "incenteev/composer-parameter-handler": "^2.0",
+        "lexik/jwt-authentication-bundle": "^2.4",
         "nelmio/cors-bundle": "^1.4",
         "phpdocumentor/reflection-docblock": "^3.0",
         "sensio/distribution-bundle": "^5.0.19",
@@ -42,6 +43,7 @@
         "behat/mink-extension": "^2.2",
         "behat/symfony2-extension": "^2.1",
         "behatch/contexts": "^2.5",
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },

@@ -58,6 +58,17 @@ services:
     ports:
       - "8011:80"
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=api_platform
+      - PMA_PASSWORD=api_platform
+    depends_on:
+      - db
+    ports:
+      - "8012:80"
+
   front:
     build:
       context: ./docker/front
@@ -67,8 +78,8 @@ services:
       - ./docker/front/default:/etc/nginx/sites-available/default
       - ./front:/var/www/front/:delegated
     ports:
-      - "80:80"
-      - "4200:4200"
+      - "83:80"
+      - "4300:4200"
 
 volumes:
   app-web: {}

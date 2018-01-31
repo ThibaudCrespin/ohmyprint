@@ -1,0 +1,4 @@
+AppBundle\Entity\User:
+    dummy_admin_{1..10}:
+        username: <name()>
+        password: password_fixture

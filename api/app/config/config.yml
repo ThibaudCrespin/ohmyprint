@@ -3,6 +3,10 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: api_filters.yml }
+    - { resource: packages/doctrine.yml }
+    - { resource: packages/api_platform.yml }
+    - { resource: packages/lexik_jwt_authentication.yml }
+    - { resource: packages/nelmio_cors.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -39,29 +43,6 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver: pdo_mysql
-        host: '%database_host%'
-        port: '%database_port%'
-        dbname: '%database_name%'
-        user: '%database_user%'
-        password: '%database_password%'
-        server_version: '5.7'
-        charset: UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: '%kernel.project_dir%/data/data.db3'
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path: '%database_path%'
-
-    orm:
-        auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
@@ -69,33 +50,4 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-# Nelmio CORS
-nelmio_cors:
-    defaults:
-        allow_origin: ['%cors_allow_origin%']
-        allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
-        allow_headers: ['content-type', 'authorization']
-        expose_headers: ['link']
-        max_age: 3600
-    paths:
-        '^/': ~
-
-api_platform:
-    http_cache:
-        invalidation:
-            enabled: true
-            varnish_urls: '%varnish_urls%'
-        max_age: 0
-        shared_max_age: 3600
-        vary: ['Content-Type', 'Authorization']
-        public: true
-    swagger:
-        api_keys:
-            - { name: 'Authorization', type: 'header'}
-
-lexik_jwt_authentication:
-    private_key_path: '%jwt_private_key_path%'
-    public_key_path:  '%jwt_public_key_path%'
-    pass_phrase:      '%jwt_key_pass_phrase%'
-    token_ttl:        '%jwt_token_ttl%'
+    

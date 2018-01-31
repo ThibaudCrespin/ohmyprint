@@ -9,7 +9,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable
 {
@@ -41,6 +40,11 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $salt;
+
+    /**
      * @ORM\Column(type="string", length=60, unique=true)
      */
     private $email;
@@ -51,9 +55,9 @@ class User implements UserInterface, \Serializable
     private $isActive;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="array")
      */
-    private $role;
+    private $roles;
 
     public function __construct()
     {
@@ -70,56 +74,6 @@ class User implements UserInterface, \Serializable
         );
     }
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    public function getSalt()
-    {
-        // you *may* need a real salt depending on your encoder
-        // see section on salt below
-        return null;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-    public function eraseCredentials()
-    {
-    }
-
-    /** @see \Serializable::serialize() */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt,
-        ));
-    }
-
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt
-        ) = unserialize($serialized);
-    }
-
     /**
      * Get id
      *
@@ -129,7 +83,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
-
+    
     /**
      * Set username
      *
@@ -145,6 +99,16 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * Get username
+     *
+     * @return User
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
      * Set password
      *
      * @param string $password
@@ -156,6 +120,40 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return User
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+      $this->salt = $salt;
+      return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return User
+     */
+    public function getSalt()
+    {
+        return null;
+        #return $this->salt;
     }
 
     /**
@@ -257,13 +255,13 @@ class User implements UserInterface, \Serializable
     /**
      * Set role
      *
-     * @param string $role
+     * @param array $roles
      *
      * @return User
      */
-    public function setRole($role)
+    public function setRoles(array $roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -271,10 +269,59 @@ class User implements UserInterface, \Serializable
     /**
      * Get role
      *
-     * @return string
+     * @return array
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
+    }
+
+    public function isEqualTo(UserInterface $user)
+    {
+        if (!$user instanceof WebserviceUser) {
+            return false;
+        }
+
+        if ($this->password !== $user->getPassword()) {
+            return false;
+        }
+
+        if ($this->salt !== $user->getSalt()) {
+            return false;
+        }
+
+        if ($this->username !== $user->getUsername()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized);
     }
 }

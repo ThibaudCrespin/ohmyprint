@@ -9,9 +9,15 @@ OPTIND=1
 # Common operations
 initialize() {
     down
+    build
     start
     install
+    populate
     docker-compose ps
+}
+
+build() {
+    docker-compose build
 }
 
 start() {
@@ -21,7 +27,20 @@ start() {
 }
 
 install() {
+    installBack
+    installFront
+}
+
+installFront() {
     docker-compose exec front bash -c "yarn run build"
+}
+
+installBack() {
+    docker-compose exec -T --user www-data app bin/console doctrine:database:create --if-not-exists
+}
+
+populate() {
+    docker-compose exec app -T --user www-data bin/console doctrine:fixtures:load -n
 }
 
 stop() {
@@ -32,7 +51,7 @@ down() {
     docker-compose down --remove-orphans
 }
 
-serve() {
+serveFront() {
     docker-compose exec front bash -c "yarn run start"
 }
 
@@ -98,8 +117,17 @@ case "$1" in
  install)
         install
         ;;
- serve)
-        serve
+ installFront)
+        installFront
+        ;;
+ installBack)
+        installBack
+        ;;
+ serveFront)
+        serveFront
+        ;;
+ populate)
+        populate
         ;;
  *)
         show_help >&2

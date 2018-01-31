@@ -23,6 +23,14 @@ security:
             pattern:  ^/api/login
             stateless: true
             anonymous: true
+            provider: our_db_provider
+            form_login:
+                check_path:               /api/login
+                username_parameter:       email
+                password_parameter:       password
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
         api:
             pattern:   ^/api/(?!docs)
             stateless: true
@@ -30,16 +38,8 @@ security:
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-        main:
-            #pattern:    ^/
-            anonymous: ~
-            #http_basic: ~
-            #provider: our_db_provider
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
-    
+        
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/docs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/docs,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY       }

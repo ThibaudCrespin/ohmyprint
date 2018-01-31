@@ -1,0 +1,15 @@
+api_platform:
+    title: 'ohmyprint'
+    description: 'ohmyprint est un site web e-commerce pour une imprimerie en ligne.'
+    version: '1.0.0'
+    http_cache:
+        invalidation:
+            enabled: true
+            varnish_urls: '%varnish_urls%'
+        max_age: 0
+        shared_max_age: 3600
+        vary: ['Content-Type', 'Authorization']
+        public: true
+    swagger:
+        api_keys:
+            - { name: 'Authorization', type: 'header'}

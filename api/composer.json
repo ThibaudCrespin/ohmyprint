@@ -2,15 +2,6 @@
     "name": "api-platform/api-platform",
     "license": "MIT",
     "type": "project",
-    "description": "The API Platform framework",
-    "homepage": "https://api-platform.com",
-    "authors": [
-        {
-            "name": "Kévin Dunglas",
-            "email": "dunglas@gmail.com",
-            "homepage": "https://dunglas.fr"
-        }
-    ],
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -75,8 +66,6 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
-        "branch-alias": {
-            "dev-master": "2.1-dev"
-        }
+        "branch-alias": null
     }
 }

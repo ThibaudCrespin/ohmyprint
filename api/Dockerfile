@@ -64,5 +64,7 @@ RUN composer dump-autoload --optimize --classmap-authoritative --no-dev
 COPY docker/app/docker-entrypoint.sh /usr/local/bin/docker-app-entrypoint
 RUN chmod +x /usr/local/bin/docker-app-entrypoint
 
+RUN chown -R www-data /srv
+
 ENTRYPOINT ["docker-app-entrypoint"]
 CMD ["php-fpm"]

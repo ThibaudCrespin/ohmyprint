@@ -25,17 +25,11 @@ class UserFixtures extends Fixture
             $manager->persist($product);
         }*/
 
-        $user = new User();
-        $user->setUsername('admin');
-
+        $user = $this->encoder->createAdminUser('admin', '111111');
+        
         $user->setFirstname('Thibaud');
         $user->setLastname('Crespin');
         $user->setEmail('admin@admin.com');
-        
-        $user->setRole('ADMIN');
-
-        $password = $this->encoder->encodePassword($user, '111111');
-        $user->setPassword($password);
 
         $manager->persist($user);
 

@@ -78,8 +78,9 @@ services:
       - ./docker/front/default:/etc/nginx/sites-available/default
       - ./front:/var/www/front/:delegated
     ports:
-      - "83:80"
-      - "4300:4200"
+      - 4200:4200
+      - 83:80
+
 
 volumes:
   app-web: {}

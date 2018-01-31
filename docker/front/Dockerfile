@@ -8,6 +8,8 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && \
         curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
         apt-get update && apt-get install -y yarn
 RUN sudo npm install --global @angular/cli && rm -rf /var/lib/apt/lists/*
-RUN chown -R www-data:www-data /var/www/
+
+EXPOSE 4200 83
+
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 CMD ["/docker-entrypoint.sh"]

@@ -32,7 +32,7 @@ install() {
 }
 
 installFront() {
-    docker-compose exec front bash -c "yarn run build"
+    docker-compose run front yarn run build
 }
 
 installBack() {
@@ -52,7 +52,7 @@ down() {
 }
 
 serveFront() {
-    docker-compose exec front bash -c "yarn run start"
+    docker-compose run front yarn run start
 }
 
 # Usage info
@@ -61,12 +61,16 @@ cat << EOF
 Usage:  ${0##*/} [COMMAND]
 
 Commands:
+  build            Build docker stack
   initialize       Start the project no matter what state it is in
   start            Start docker containers
-  install          Run front app installation scripts
+  install          Run app installation scripts
+  installFront     Run front app installation scripts
+  installBack      Run back app installation scripts
+  populate         Load data fixtures in app
   stop             Stop docker containers
   down             Remove docker containers
-  serve            Serve Angular files for local dev
+  serveFront            Serve Angular files for local dev
 EOF
 }
 
@@ -98,6 +102,9 @@ if [ $# -eq 0 ]
 fi
 
 case "$1" in
+ build)
+        build
+        ;;
  initialize)
         initialize
         ;;

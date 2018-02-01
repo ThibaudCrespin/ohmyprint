@@ -1,0 +1,18 @@
+@media print {
+  * {
+    -webkit-print-color-adjust: exact; /* Force l'affichage des backgrounds sur les navigateurs */
+  }
+
+  #sidebar {
+    display: none !important;
+  }
+
+  /* on ouvre tous les accordeons */
+  [role="tabpanel"].collapse {
+    display: block !important;
+  }
+
+  .hidden-print {
+    display: none;
+  }
+}

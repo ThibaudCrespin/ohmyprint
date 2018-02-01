@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*::selection,
+*::-moz-selection {
+  background: $black;
+  color: $white;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: auto;
+  font-weight: $regular;
+  color: $color-font;
+  background-color: $color-background;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  max-width: 1440px;
+}
+
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Hidden
+.hidden {
+  display: none !important;
+}
+
+.fsb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ffe {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ffs {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nba {
+  &::before,
+  &::after {
+    content: none !important;
+  }
+}
+
+// Gride
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  [class^="f-"]:not(:first-of-type) {
+    margin-left: 20px;
+  }
+}
+
+.f-1 {
+  flex: 1;
+}
+
+.f-2 {
+  flex: 2;
+}
+
+.f-3 {
+  flex: 3;
+}
+
+.f-4 {
+  flex: 4;
+}
+
+.f-5 {
+  flex: 5;
+}
+
+.f-6 {
+  flex: 6;
+}
+
+.f-7 {
+  flex: 7;
+}
+
+.f-8 {
+  flex: 8;
+}
+
+.f-9 {
+  flex: 9;
+}

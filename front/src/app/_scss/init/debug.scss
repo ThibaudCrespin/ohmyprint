@@ -1,0 +1,32 @@
+//DEBUG
+body::after {
+  font-family: "Fira Code", monospace;
+  position: fixed;
+  z-index: 10000000000;
+  bottom: 0;
+  right: 0;
+  padding: 0 .5em;
+  text-align: right;
+  opacity: .25;
+  color: #ccc;
+  background: #333;
+
+  @include media(">=xs") {
+    content: "0-567 >=xs 1⁶";
+  }
+  @include media(">=sm") {
+    content: "568-767 >=sm 2⁶";
+  }
+  @include media(">=md") {
+    content: "768-991 >=md 3⁶";
+  }
+  @include media(">=lg") {
+    content: "992-1199 >=lg 4⁶";
+  }
+  @include media(">=xl") {
+    content: "1200-1439 >=xl 5⁶";
+  }
+  @include media(">=xxl") {
+    content: "1440-∞ >=xxl 5⁶";
+  }
+}

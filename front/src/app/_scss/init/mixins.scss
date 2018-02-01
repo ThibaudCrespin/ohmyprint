@@ -1,0 +1,11 @@
+// Calcul de la font PX to EM
+
+@function calculate-rem($size: $baseFontSize) {
+  $remSize: $size / 12;
+  @return $remSize * 1rem;
+}
+
+@mixin em-size($size: $baseFontSize) {
+  font-size: $size * 1px;
+  font-size: calculate-rem($size);
+}

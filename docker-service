@@ -31,12 +31,16 @@ install() {
     installFront
 }
 
-installFront() {
-    docker-compose run front yarn run build
-}
-
 installBack() {
     docker-compose exec -T --user www-data app bin/console doctrine:database:create --if-not-exists
+}
+
+installFront() {
+    docker-compose exec front bash -c "yarn run build"
+}
+
+serveFront() {
+    docker-compose exec front bash -c "yarn run start"
 }
 
 populate() {
@@ -49,10 +53,6 @@ stop() {
 
 down() {
     docker-compose down --remove-orphans
-}
-
-serveFront() {
-    docker-compose run front yarn run start
 }
 
 # Usage info

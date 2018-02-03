@@ -33,6 +33,7 @@ install() {
 
 installBack() {
     docker-compose exec -T --user www-data app bin/console doctrine:database:create --if-not-exists
+    docker-compose exec -T --user www-data app bin/console doctrine:schema:update --dump-sql
 }
 
 installFront() {

@@ -25,6 +25,14 @@ class Product
     private $id;
 
     /**
+     * @var string The name of this product.
+     *
+     * @ORM\Column
+     * @Assert\NotBlank
+     */
+    private $title;
+
+    /**
      * @var int The category number of this product.
      *
      * @ORM\Column(type="integer")
@@ -84,6 +92,30 @@ class Product
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Product
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**

@@ -1,0 +1,9 @@
+@import 'core';
+
+:host {
+  width: 25%;
+  height: 25vw;
+  background-color: $taupe;
+  text-align: center;
+  border: 2px solid $black;
+}

@@ -1,4 +1,6 @@
-<article>
-  <p>{{ product.category }}</p>
-  <p>{{ product.title }}</p>
-</article>
+<div class="card" [ngStyle]="{ 'background-image': product.picture }">
+    <div>
+        <p>{{ product.category }}</p>
+        <p>{{ product.title }}</p>
+    </div>
+</div>

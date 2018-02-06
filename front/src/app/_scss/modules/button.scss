@@ -7,8 +7,8 @@
   line-height: 1.5;
   padding: 5px 1rem 3px;
   color: white;
+  background-color: $aqua;
   letter-spacing: .26px;
-  border-radius: 99rem;
   font-family: $font-primary;
   font-weight: $black;
   @include em-size(13);

@@ -5,6 +5,7 @@ import { HomeComponent } from './_components/core/home/home.component';
 import { MainComponent } from './_components/core/main/main.component';
 import { ProductsComponent } from './_components/core/main/products/products.component';
 import { ProductComponent } from './_components/core/main/product/product.component';
+import { BasketComponent } from './_components/core/main/basket/basket.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'products', pathMatch: 'full'},
       {path: 'products', component: ProductsComponent},
       {path: 'product/:id', component: ProductComponent},
+      {path: 'basket', component: BasketComponent},
       {path: '**', redirectTo: 'products', pathMatch: 'full'}
     ]
   },

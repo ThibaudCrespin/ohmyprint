@@ -1,0 +1,22 @@
+@import "core";
+
+:host {
+  height: 120px;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  background-color: $sky;
+
+  div {
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      color: white;
+      margin: 15px;
+    }
+  }
+}

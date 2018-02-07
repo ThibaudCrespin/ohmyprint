@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: calc(100% - 80px);
+  align-content: flex-start;
+  justify-content: space-between;
+
+  .details {
+    padding: 10px;
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .preview {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+}
+
+button {
+  height: 80px;
+  width: 100%;
+}

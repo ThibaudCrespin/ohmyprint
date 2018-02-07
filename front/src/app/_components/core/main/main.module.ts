@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 
 import { HeaderModule } from '../../common/header/header.module';
+import { FooterModule } from '../../common/footer/footer.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    HeaderModule
+    HeaderModule,
+    FooterModule
   ],
   declarations: [MainComponent]
 })

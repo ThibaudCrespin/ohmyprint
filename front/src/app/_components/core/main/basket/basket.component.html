@@ -1,0 +1,11 @@
+<a [routerLink]="['/main/products']"> < Retour</a>
+
+<div class="product" *ngFor="let product of products">
+  <article>
+    <p>{{ product.description }}</p>
+    <p>{{ produc.price }}</p>
+  </article>
+  <img [src]="product.picture" class="preview">
+</div>
+
+<button class="btn">Passer la commande</button>

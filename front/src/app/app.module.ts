@@ -12,6 +12,7 @@ import { HomeModule } from './_components/core/home/home.module';
 import { MainModule } from './_components/core/main/main.module';
 import { ProductsModule } from './_components/core/main/products/products.module';
 import { ProductModule } from './_components/core/main/product/product.module';
+import { BasketModule } from './_components/core/main/basket/basket.module';
 
 /**
  * COMMON MODULE IMPORTS
@@ -19,6 +20,7 @@ import { ProductModule } from './_components/core/main/product/product.module';
 import { HeaderModule } from './_components/common/header/header.module';
 import { NavModule } from './_components/common/nav/nav.module';
 import { ProductCardModule } from './_components/common/product-card/product-card.module';
+import { FooterModule } from './_components/common/footer/footer.module';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ProductCardModule } from './_components/common/product-card/product-car
     MainModule,
     ProductsModule,
     ProductModule,
+    BasketModule,
     HeaderModule,
+    FooterModule,
     NavModule,
     ProductCardModule
   ],

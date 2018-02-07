@@ -3,3 +3,14 @@
         *ngFor="let product of products"
         [routerLink]="['/main/product', product.id]">
 </app-product-card>
+<app-product-card
+        [product]="product"
+        *ngFor="let product of products"
+        [routerLink]="['/main/product', product.id]">
+</app-product-card>
+<app-product-card
+        [product]="product"
+        *ngFor="let product of products"
+        [routerLink]="['/main/product', product.id]">
+</app-product-card>
+<a [routerLink]="['/main/basket']" class="btn-fix"><i class="fas fa-shopping-cart"></i></a>

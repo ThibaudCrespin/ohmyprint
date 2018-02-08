@@ -11,12 +11,12 @@
   .details {
     padding: 10px;
     display: inherit;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 
     .preview {
-      width: 40vw;
-      height: 40vw;
+      width: 50vw;
+      height: auto;
     }
   }
 }

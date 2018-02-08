@@ -1,6 +1,10 @@
+@import "core";
+
 :host {
+  margin-top: 15px;
+
   a {
     color: white;
-    margin: 20px;
+    padding: 15px;
   }
 }

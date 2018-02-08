@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,8 +10,8 @@ export class ProductComponent implements OnInit {
   product: any;
   id: string;
 
-  constructor(route: ActivatedRoute) {
-    this.id = route.snapshot.paramMap.get('id');
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
   getProduct() {
@@ -21,9 +21,16 @@ export class ProductComponent implements OnInit {
       "category": 1,
       "format": "60x100",
       "price": "20",
-      "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-      "picture": "http://via.placeholder.com/300x300"
+      "description": "Faciles à créer, difficiles à oublier.\n" +
+      "• Affichez vos posters personnalisés sur vos murs, portes et vitrines.\n" +
+      "• Nombreuses tailles disponibles pour faire les choses en grand, en petit, ou entre les deux. \n" +
+      "• Choisissez une finition mate ou glacée pour un rendu qui vous correspond.",
+      "picture": "https://www.printimmo.com/documents/images/general_photos/impression-banderole-sur-mesure-20.jpg"
     };
+  }
+
+  addToCart() {
+    this.router.navigate(['/main/basket']);
   }
 
   ngOnInit() {

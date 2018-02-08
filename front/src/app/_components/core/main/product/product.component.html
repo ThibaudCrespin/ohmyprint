@@ -1,13 +1,16 @@
 <a [routerLink]="['/main/products']"> < Retour</a>
 
 <div class="details">
+    <h2>{{ product.title }}</h2>
     <article>
         <p>{{ product.description }}</p>
-        <div class="filters">
+        <p>Prix : {{ product.price | currency }}</p>
+        <p>Dimensions : {{ product.format }}</p>
 
+        <div class="filters">
         </div>
     </article>
     <img [src]="product.picture" class="preview">
 </div>
 
-<button class="btn">Sélectionner</button>
+<button class="btn" (click)="addToCart()">Sélectionner</button>

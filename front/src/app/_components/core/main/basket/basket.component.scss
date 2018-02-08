@@ -8,12 +8,15 @@
 
   .details {
     padding: 10px;
-    display: inherit;
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
+
+    article {
+      width: 70vw;
+    }
 
     .preview {
-      width: 10vw;
+      width: auto;
       height: 10vw;
     }
   }

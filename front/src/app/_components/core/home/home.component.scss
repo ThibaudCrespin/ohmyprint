@@ -4,17 +4,35 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-image: url("/assets/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: $black;
-  opacity: .7;
+
+  .background {
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $black;
+    opacity: .4;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    width: 100vw;
+    height: 100vh;
+
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+  }
 }
 
 header {
   height: 80px;
-  padding: 25px 30px;
+  padding: 10px 30px;
   display: flex;
   justify-content: flex-end;
 }
@@ -22,8 +40,16 @@ header {
 main {
   height: calc(100% - 80px);
   display: flex;
-  justify-content: center;
-  align-content: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  width: 45vw;
+  height: auto;
+  margin: auto;
 }
 
 .mouse {
@@ -33,6 +59,7 @@ main {
   height: 88px;
   border-radius: 100px;
   background-size: 225%;
+  margin-bottom: 20px;
   animation: colorSlide 8s linear infinite;
 }
 .mouse:before, .mouse:after {

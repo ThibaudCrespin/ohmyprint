@@ -2,7 +2,7 @@
 
 :host {
   height: 80px;
-  padding: 25px 30px;
+  padding: 10px 30px;
   display: flex;
   align-items: left;
   justify-content: space-between;
@@ -11,5 +11,9 @@
 
   a {
     color: white;
+  }
+
+  .logo {
+    height: 60px;
   }
 }

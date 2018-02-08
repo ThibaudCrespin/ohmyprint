@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "http://saga-print.fr/images/detailed/0/Panneau_immobilier_600x200_publicitaire.jpg"
       },
       {
         "id": 2,
@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "https://www.printimmo.com/documents/images/general_photos/impression-banderole-sur-mesure-20.jpg"
       },
       {
         "id": 4,

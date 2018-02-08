@@ -9,13 +9,15 @@
   justify-content: space-between;
 
   .details {
+    height: 80vh;
     padding: 10px;
     display: inherit;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 
     .preview {
-      width: 50vw;
+      width: 40vw;
       height: auto;
     }
   }
@@ -24,4 +26,9 @@
 button {
   height: 80px;
   width: 100%;
+}
+
+.back {
+  height: 40px;
+  padding: 20px;
 }

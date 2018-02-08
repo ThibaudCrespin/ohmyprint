@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "http://via.placeholder.com/300x200"
       },
       {
         "id": 3,
@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "http://via.placeholder.com/300x200"
       },
       {
         "id": 5,
@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "http://via.placeholder.com/300x200"
       },
       {
         "id": 6,
@@ -62,7 +62,7 @@ export class ProductsComponent implements OnInit {
         "format": "60x100",
         "price": "20",
         "description": "Le tableau est un affichage standard que l'on peut mettre dans n'importe quelle pièce",
-        "picture": "http://via.placeholder.com/300x300"
+        "picture": "http://via.placeholder.com/300x200"
       }
     ]
   }
